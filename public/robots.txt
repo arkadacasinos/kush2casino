@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://kush2casino.vercel.app/sitemap.xml
+Host: https://kush2casino.vercel.app

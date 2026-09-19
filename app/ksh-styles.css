@@ -1,0 +1,478 @@
+/* Kush Casino — Custom Styles (ksh- prefix for unique class names) */
+
+:root {
+  --ksh-bg: #0A0E1A;
+  --ksh-surface: #131826;
+  --ksh-surface-alt: #1A2030;
+  --ksh-gold: #C9A961;
+  --ksh-gold-light: #E8D5A0;
+  --ksh-gold-bright: #F0D878;
+  --ksh-text: #E8E8E8;
+  --ksh-text-muted: #8B92A5;
+  --ksh-accent: #C53030;
+  --ksh-border: rgba(201, 169, 97, 0.15);
+  --ksh-border-hover: rgba(201, 169, 97, 0.35);
+  --ksh-radius: 12px;
+  --ksh-radius-sm: 8px;
+  --ksh-max-width: 1140px;
+  --ksh-font-serif: Georgia, 'Times New Roman', 'Noto Serif', serif;
+  --ksh-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.ksh-html-root {
+  background-color: var(--ksh-bg);
+  scroll-behavior: smooth;
+}
+
+.ksh-body-root {
+  margin: 0;
+  padding: 0;
+  font-family: var(--ksh-font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ksh-text);
+  background-color: var(--ksh-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.ksh-page-wrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* === Navigation === */
+
+.ksh-nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(10, 14, 26, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--ksh-border);
+  padding: 0 16px;
+}
+
+.ksh-nav-inner {
+  max-width: var(--ksh-max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+
+.ksh-nav-logo {
+  font-family: var(--ksh-font-serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ksh-gold);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.ksh-nav-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.ksh-nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: var(--ksh-gold);
+  border-radius: 2px;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.ksh-nav-menu {
+  display: none;
+  position: absolute;
+  top: 56px;
+  left: 0;
+  right: 0;
+  background-color: var(--ksh-surface);
+  border-bottom: 1px solid var(--ksh-border);
+  padding: 12px 16px;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ksh-nav-menu.ksh-nav-open {
+  display: flex;
+}
+
+.ksh-nav-link {
+  display: block;
+  padding: 10px 12px;
+  color: var(--ksh-text);
+  text-decoration: none;
+  font-size: 15px;
+  border-radius: var(--ksh-radius-sm);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.ksh-nav-link:hover,
+.ksh-nav-link.ksh-nav-active {
+  background-color: var(--ksh-surface-alt);
+  color: var(--ksh-gold-light);
+}
+
+/* === Hero === */
+
+.ksh-hero-wrap {
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+  overflow: hidden;
+}
+
+.ksh-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.35;
+  z-index: 0;
+}
+
+.ksh-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 14, 26, 0.6) 0%, rgba(10, 14, 26, 0.9) 100%);
+  z-index: 1;
+}
+
+.ksh-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+}
+
+.ksh-hero-title {
+  font-family: var(--ksh-font-serif);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--ksh-gold-light);
+  margin: 0 0 16px;
+  text-wrap: balance;
+}
+
+.ksh-hero-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ksh-text);
+  margin: 0 0 28px;
+  text-wrap: pretty;
+}
+
+.ksh-hero-cta {
+  display: inline-block;
+  padding: 14px 36px;
+  background: linear-gradient(135deg, var(--ksh-gold), var(--ksh-gold-bright));
+  color: var(--ksh-bg);
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: var(--ksh-radius);
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px rgba(201, 169, 97, 0.3);
+}
+
+.ksh-hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(201, 169, 97, 0.45);
+}
+
+/* === Sections (shared) === */
+
+.ksh-section-wrap {
+  padding: 40px 20px;
+}
+
+.ksh-section-inner {
+  max-width: var(--ksh-max-width);
+  margin: 0 auto;
+}
+
+.ksh-section-title {
+  font-family: var(--ksh-font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ksh-gold);
+  margin: 0 0 16px;
+  line-height: 1.35;
+  text-wrap: balance;
+}
+
+.ksh-section-subtitle {
+  font-family: var(--ksh-font-serif);
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--ksh-gold-light);
+  margin: 28px 0 12px;
+  line-height: 1.4;
+  text-wrap: balance;
+}
+
+.ksh-section-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ksh-text);
+  margin: 0 0 14px;
+  text-wrap: pretty;
+}
+
+.ksh-section-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--ksh-radius);
+  margin: 20px 0;
+  border: 1px solid var(--ksh-border);
+}
+
+/* === Advantages grid === */
+
+.ksh-adv-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.ksh-adv-item {
+  background-color: var(--ksh-surface);
+  border: 1px solid var(--ksh-border);
+  border-radius: var(--ksh-radius);
+  padding: 20px;
+  transition: border-color 0.2s;
+}
+
+.ksh-adv-item:hover {
+  border-color: var(--ksh-border-hover);
+}
+
+.ksh-adv-heading {
+  font-family: var(--ksh-font-serif);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ksh-gold-light);
+  margin: 0 0 8px;
+}
+
+.ksh-adv-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ksh-text-muted);
+  margin: 0;
+}
+
+/* === FAQ === */
+
+.ksh-faq-item {
+  background-color: var(--ksh-surface);
+  border: 1px solid var(--ksh-border);
+  border-radius: var(--ksh-radius-sm);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.ksh-faq-q {
+  display: block;
+  padding: 16px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ksh-gold-light);
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  padding-right: 44px;
+}
+
+.ksh-faq-q::-webkit-details-marker {
+  display: none;
+}
+
+.ksh-faq-q::after {
+  content: '+';
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22px;
+  color: var(--ksh-gold);
+  transition: transform 0.2s;
+}
+
+.ksh-faq-item[open] .ksh-faq-q::after {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.ksh-faq-a {
+  padding: 0 20px 16px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ksh-text);
+}
+
+/* === Footer === */
+
+.ksh-footer-wrap {
+  background-color: var(--ksh-surface);
+  border-top: 1px solid var(--ksh-border);
+  padding: 40px 20px 24px;
+  margin-top: auto;
+}
+
+.ksh-footer-inner {
+  max-width: var(--ksh-max-width);
+  margin: 0 auto;
+}
+
+.ksh-footer-brand {
+  font-family: var(--ksh-font-serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ksh-gold);
+  margin: 0 0 16px;
+}
+
+.ksh-footer-disclaimer {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ksh-text-muted);
+  margin: 0 0 24px;
+}
+
+.ksh-footer-tags-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ksh-gold-light);
+  margin: 0 0 12px;
+}
+
+.ksh-footer-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 24px;
+}
+
+.ksh-footer-tag {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: var(--ksh-surface-alt);
+  border: 1px solid var(--ksh-border);
+  border-radius: 20px;
+  font-size: 12px;
+  color: var(--ksh-text-muted);
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.ksh-footer-tag:hover {
+  border-color: var(--ksh-border-hover);
+  color: var(--ksh-gold-light);
+}
+
+.ksh-footer-copy {
+  font-size: 12px;
+  color: var(--ksh-text-muted);
+  border-top: 1px solid var(--ksh-border);
+  padding-top: 16px;
+  margin: 0;
+}
+
+/* === Responsive: Tablet === */
+
+@media (min-width: 640px) {
+  .ksh-hero-title {
+    font-size: 34px;
+  }
+
+  .ksh-hero-text {
+    font-size: 17px;
+  }
+
+  .ksh-section-title {
+    font-size: 26px;
+  }
+
+  .ksh-section-subtitle {
+    font-size: 22px;
+  }
+
+  .ksh-section-text {
+    font-size: 16px;
+  }
+
+  .ksh-adv-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* === Responsive: Desktop === */
+
+@media (min-width: 900px) {
+  .ksh-nav-toggle {
+    display: none;
+  }
+
+  .ksh-nav-menu {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    gap: 4px;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  .ksh-hero-wrap {
+    min-height: 520px;
+    padding: 80px 20px;
+  }
+
+  .ksh-hero-title {
+    font-size: 42px;
+  }
+
+  .ksh-hero-text {
+    font-size: 18px;
+  }
+
+  .ksh-section-wrap {
+    padding: 60px 20px;
+  }
+
+  .ksh-section-title {
+    font-size: 30px;
+  }
+
+  .ksh-section-subtitle {
+    font-size: 24px;
+  }
+
+  .ksh-adv-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .ksh-footer-tag {
+    font-size: 13px;
+  }
+}

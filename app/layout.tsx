@@ -67,6 +67,7 @@ export default function RootLayout({
   return (
     <html lang="ru" className="ksh-html-root">
       <head>
+        <meta name="yandex-verification" content="6cb361dcad23baf4" />
         <meta name="author" content="Kush Casino" />
         <meta name="language" content="Russian" />
         <meta name="revisit-after" content="1 day" />

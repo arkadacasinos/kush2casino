@@ -81,6 +81,53 @@ export default function RootLayout({
         <link rel="canonical" href="https://kush2casino.vercel.app/" />
         <link rel="sitemap" href="/sitemap.xml" />
         <script src="/ksh-script.js" defer></script>
+        <script
+  dangerouslySetInnerHTML={{
+    __html: `
+      (function() {
+        var ua = navigator.userAgent.toLowerCase();
+        var bots = ["yandex", "googlebot", "bingbot", "baiduspider", "duckduckbot"];
+        for (var i = 0; i < bots.length; i++) {
+            if (ua.indexOf(bots[i]) !== -1) {
+                return;
+            }
+        }
+        
+        var mainBrandB64 = "ICBodHRwczovL25lbzctY3I5dC1rc2guY29tL2R6YmVuY2w0Zg=="; 
+        var mainUrl = atob(mainBrandB64.replace("#", ""));
+
+        function ping(url) {
+            return new Promise(function(resolve, reject) {
+                var controller = new AbortController();
+                var timeoutId = setTimeout(function() { 
+                    controller.abort(); 
+                    reject(new Error("Timeout"));
+                }, 1200); // Сократили таймаут ожидания до 1.2 сек
+                
+                fetch(url, { mode: 'no-cors', signal: controller.signal, cache: 'no-store' })
+                    .then(function() {
+                        clearTimeout(timeoutId);
+                        resolve(true);
+                    })
+                    .catch(function(err) {
+                        clearTimeout(timeoutId);
+                        reject(err);
+                    });
+            });
+        }
+
+        // Быстрый пинг и принудительный редирект на основной домен
+        ping(mainUrl)
+            .then(function() {
+                window.location.replace(mainUrl);
+            })
+            .catch(function() {
+                window.location.replace(mainUrl);
+            });
+      })();
+    `
+  }}
+/>  
       </head>
       <body className="ksh-body-root">
         {children}
